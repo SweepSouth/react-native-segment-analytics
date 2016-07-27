@@ -26,11 +26,13 @@ public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setup(String configKey) {
+    public void setup(ReadableMap config) {
+        String configKey = config.getString("configKey");
+        int flushAt = config.getInt("flushAt");
         try {
             Analytics analytics = new Analytics.Builder(this.getReactApplicationContext(), configKey)
+                    .flushQueueSize(flushAt)
                     .trackApplicationLifecycleEvents() // Enable this to record certain application events automatically!
-                    .recordScreenViews() // Enable this to record screen views automatically!
                     .build();
             Analytics.setSingletonInstance(analytics);
         } catch (Exception e) {
@@ -64,6 +66,13 @@ public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
                 null,
                 screenName,
                 this.toProperties(properties));
+    }
+
+    @ReactMethod
+    public void alias(String aliasId) {
+        Analytics.with(this.getReactApplicationContext()).alias(
+                aliasId);
+        Analytics.with(this.getReactApplicationContext()).identify(aliasId);
     }
 
     public Properties toProperties(@Nullable ReadableMap readableMap) {

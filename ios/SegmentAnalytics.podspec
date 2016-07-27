@@ -22,10 +22,10 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Carlos Andonaegui' => 'charlires@gmail.com' }
-  s.source           = { :git => 'https://github.com/charlires/react-native-segment-analytics.git', :branch => s.version.to_s }
+  s.source           = { :git => 'https://github.com/SweepSouth/react-native-segment-analytics.git' }
   s.social_media_url = 'https://twitter.com/charlires'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
 
   s.source_files = 'SegmentAnalytics/Classes/**/*.{h,m}'
 

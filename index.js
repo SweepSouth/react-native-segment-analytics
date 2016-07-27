@@ -5,8 +5,8 @@ import {
 const {SegmentAnalytics} = NativeModules;
 
 export default {
-  setup: function (configKey: string) {
-    SegmentAnalytics.setup(configKey);
+  setup: function (configuration: Object) {
+    SegmentAnalytics.setup(configuration);
   },
 
   identify: function (userId: string, traits: Object) {
@@ -19,5 +19,9 @@ export default {
 
   screen: function (screenName: string, properties: Object) {
     SegmentAnalytics.screen(screenName, properties);
+  },
+
+  alias: function (aliasId: string) {
+    SegmentAnalytics.alias(aliasId);
   }
 };
