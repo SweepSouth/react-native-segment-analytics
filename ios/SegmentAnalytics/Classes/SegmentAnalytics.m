@@ -6,6 +6,7 @@
 #import "RCTConvert.h"
 #import <Analytics/SEGAnalytics.h>
 #import <Foundation/Foundation.h>
+#import <Segment-Firebase/SEGFirebaseIntegrationFactory.h>
 
 @implementation SegmentAnalytics
 
@@ -16,6 +17,7 @@ RCT_EXPORT_METHOD(setup:(NSDictionary*)config) {
     NSInteger flushAt = [[config objectForKey:@"flushAt"] integerValue];
 
     SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:configKey];
+    [configuration use:[SEGFirebaseIntegrationFactory instance]];
     configuration.flushAt = flushAt;
     configuration.trackApplicationLifecycleEvents = YES;
     [SEGAnalytics setupWithConfiguration:configuration];

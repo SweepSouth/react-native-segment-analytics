@@ -30,4 +30,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SegmentAnalytics/Classes/**/*.{h,m}'
 
   s.dependency 'Analytics'
+  s.dependency 'Segment-Firebase'
 end

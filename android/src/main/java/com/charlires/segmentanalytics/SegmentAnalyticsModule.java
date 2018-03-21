@@ -12,6 +12,7 @@ import com.facebook.react.bridge.ReadableType;
 import com.segment.analytics.Analytics;
 import com.segment.analytics.Properties;
 import com.segment.analytics.Traits;
+import com.segment.analytics.android.integrations.firebase.FirebaseIntegration;
 
 
 public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
@@ -31,6 +32,7 @@ public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
         int flushAt = config.getInt("flushAt");
         try {
             Analytics analytics = new Analytics.Builder(this.getReactApplicationContext(), configKey)
+                    .use(FirebaseIntegration.FACTORY)
                     .flushQueueSize(flushAt)
                     .trackApplicationLifecycleEvents() // Enable this to record certain application events automatically!
                     .build();
