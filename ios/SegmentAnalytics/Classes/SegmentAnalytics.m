@@ -7,6 +7,7 @@
 #import <Analytics/SEGAnalytics.h>
 #import <Foundation/Foundation.h>
 #import <Segment-Firebase/SEGFirebaseIntegrationFactory.h>
+#import <Segment-Mixpanel/SEGMixpanelIntegrationFactory.h>
 
 @implementation SegmentAnalytics
 
@@ -18,6 +19,7 @@ RCT_EXPORT_METHOD(setup:(NSDictionary*)config) {
 
     SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:configKey];
     [configuration use:[SEGFirebaseIntegrationFactory instance]];
+    [configuration use:[SEGMixpanelIntegrationFactory instance]];
     configuration.flushAt = flushAt;
     configuration.trackApplicationLifecycleEvents = YES;
     [SEGAnalytics setupWithConfiguration:configuration];

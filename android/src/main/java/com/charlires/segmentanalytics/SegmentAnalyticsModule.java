@@ -13,6 +13,7 @@ import com.segment.analytics.Analytics;
 import com.segment.analytics.Properties;
 import com.segment.analytics.Traits;
 import com.segment.analytics.android.integrations.firebase.FirebaseIntegration;
+import com.segment.analytics.android.integrations.mixpanel.MixpanelIntegration;
 
 
 public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
@@ -33,6 +34,7 @@ public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
         try {
             Analytics analytics = new Analytics.Builder(this.getReactApplicationContext(), configKey)
                     .use(FirebaseIntegration.FACTORY)
+                    .use(MixpanelIntegration.FACTORY)
                     .flushQueueSize(flushAt)
                     .trackApplicationLifecycleEvents() // Enable this to record certain application events automatically!
                     .build();

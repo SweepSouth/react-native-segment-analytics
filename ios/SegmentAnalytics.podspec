@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'Analytics'
   s.dependency 'Segment-Firebase'
+  s.dependency 'Segment-Mixpanel'
 end
