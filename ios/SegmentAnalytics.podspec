@@ -25,10 +25,11 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/SweepSouth/react-native-segment-analytics.git' }
   s.social_media_url = 'https://twitter.com/charlires'
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'SegmentAnalytics/Classes/**/*.{h,m}'
 
+  s.dependency 'React'
   s.dependency 'Analytics'
   s.dependency 'Segment-Firebase'
   s.dependency 'Segment-Mixpanel'
