@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <Segment-Firebase/SEGFirebaseIntegrationFactory.h>
 #import <Segment-Mixpanel/SEGMixpanelIntegrationFactory.h>
+#import <segment-appsflyer-ios/SEGAppsFlyerIntegrationFactory.h>
 
 @implementation SegmentAnalytics
 
