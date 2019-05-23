@@ -20,8 +20,13 @@ RCT_EXPORT_METHOD(setup:(NSDictionary*)config) {
     SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:configKey];
     [configuration use:[SEGFirebaseIntegrationFactory instance]];
     [configuration use:[SEGMixpanelIntegrationFactory instance]];
+    [configuration use:[SEGAppsFlyerIntegrationFactory instance]];
+
     configuration.flushAt = flushAt;
     configuration.trackApplicationLifecycleEvents = YES;
+    configuration.trackDeepLinks = YES;
+    configuration.trackPushNotifications = YES;
+    configuration.trackAttributionData = YES;
     [SEGAnalytics setupWithConfiguration:configuration];
 }
 

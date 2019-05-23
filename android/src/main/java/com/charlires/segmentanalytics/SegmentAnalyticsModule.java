@@ -14,6 +14,7 @@ import com.segment.analytics.Properties;
 import com.segment.analytics.Traits;
 import com.segment.analytics.android.integrations.firebase.FirebaseIntegration;
 import com.segment.analytics.android.integrations.mixpanel.MixpanelIntegration;
+import com.segment.analytics.android.integrations.appsflyer.AppsflyerIntegration;
 
 
 public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
@@ -35,8 +36,10 @@ public class SegmentAnalyticsModule extends ReactContextBaseJavaModule {
             Analytics analytics = new Analytics.Builder(this.getReactApplicationContext(), configKey)
                     .use(FirebaseIntegration.FACTORY)
                     .use(MixpanelIntegration.FACTORY)
+                    .use(AppsflyerIntegration.FACTORY)
                     .flushQueueSize(flushAt)
                     .trackApplicationLifecycleEvents() // Enable this to record certain application events automatically!
+                    .trackAttributionInformation() // Install Attributed event
                     .build();
             Analytics.setSingletonInstance(analytics);
         } catch (Exception e) {

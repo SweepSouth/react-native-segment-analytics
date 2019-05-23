@@ -37,4 +37,6 @@ dependencies {
     // compile 'com.segment.analytics.android.integrations:firebase:+'
     compile 'com.segment.analytics.android.integrations:firebase:1.1.0'
     compile 'com.segment.analytics.android.integrations:mixpanel:+'
+    compile 'com.appsflyer:segment-android-integration:1.+'
+    compile 'com.android.installreferrer:installreferrer:1.0'
 }
