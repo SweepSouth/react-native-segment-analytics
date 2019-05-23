@@ -25,8 +25,6 @@ RCT_EXPORT_METHOD(setup:(NSDictionary*)config) {
 
     configuration.flushAt = flushAt;
     configuration.trackApplicationLifecycleEvents = YES;
-    configuration.trackDeepLinks = YES;
-    configuration.trackPushNotifications = YES;
     configuration.trackAttributionData = YES;
     [SEGAnalytics setupWithConfiguration:configuration];
 }
